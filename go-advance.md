@@ -1,90 +1,79 @@
+Advanced Go (Golang) Expertise
+
 1. Concurrency & Parallelism
 
-Goroutines: lightweight thread → hàng trăm nghìn goroutine trong 1 process.
+Goroutines: Lightweight threads capable of running hundreds of thousands within a single process.
 
-Channel Patterns:
+Channel Patterns: Fan-in/Fan-out, Worker Pool, Pipeline.
 
-Fan-in / Fan-out
+Context Management: Cancellation propagation, timeouts, deadlines.
 
-Worker pool
+Sync vs Atomic: Locks, RWMutex, Once, Cond vs atomic operations.
 
-Pipeline
+2. Architecture & Design
 
-Context: cancel propagation, timeout, deadline.
+Clean / Hexagonal Architecture: Separation of domain, use cases, and infrastructure layers.
 
-sync vs atomic: lock, RWMutex, Once, Cond vs atomic ops.
+Dependency Injection (DI): Using Wire or Fx.
 
-🔹 2. Architecture & Design
+Modularization: Splitting modules by bounded context (DDD).
 
-Clean Architecture / Hexagonal Architecture: tách domain, usecase, infra.
+Generics (Go 1.18+): Implementing generic repositories, services, and collection utilities.
 
-Dependency Injection (DI): với wire
- hoặc fx.
+3. Data & Persistence
 
-Module Split: chia theo bounded context (DDD).
+Database ORM/Drivers: GORM (popular), sqlx (lightweight).
 
-Generics (Go 1.18+): viết repository/service generic, collection utils.
+Migrations: golang-migrate.
 
-🔹 3. Data & Persistence
+Advanced DB Patterns: Transaction context, optimistic/pessimistic locking.
 
-Database ORM/driver:
+Caching: Redis client (go-redis), cache-aside and write-through patterns.
 
-GORM
- (popular)
+4. Networking & Communication
 
-sqlx
- (lightweight)
+gRPC: High-performance, contract-first with Protobuf.
 
-Migration: golang-migrate
+gRPC Gateway: Bridging REST ↔ gRPC.
 
-Advanced DB Pattern: transaction context, optimistic/pessimistic locking.
+Message Queues: Kafka, SQS, NATS → pub/sub and event sourcing.
 
-Caching: Redis client (go-redis), pattern cache-aside, write-through.
+Real-time Communication: WebSockets, Server-Sent Events (SSE).
 
-🔹 4. Networking & Communication
+5. Performance & Scaling
 
-gRPC: hiệu năng cao, contract-first với Protobuf.
+Profiling & Tracing: pprof, CPU/memory profiling, goroutine leak detection.
 
-gRPC Gateway: expose REST ↔ gRPC.
+Benchmarking: testing.B (sub-benchmarks, allocations).
 
-Message Queue: Kafka, SQS, NATS → publish/subscribe, event sourcing.
+GC Tuning: Understanding GOGC, memory pooling with sync.Pool.
 
-Websocket / SSE: real-time event stream.
+Zero-copy I/O: Leveraging io.Reader, io.Writer, bufio.
 
-🔹 5. Performance & Scaling
+6. Security & Authentication
 
-pprof / tracing: profile CPU, memory, goroutine leak.
+JWT & OAuth2: Middleware authentication, refresh token rotation.
 
-Benchmarking: testing.B (sub-bench, allocs).
+mTLS: Mutual TLS for gRPC.
 
-Tuning GC: hiểu GOGC, memory pooling (sync.Pool).
+Secret Management: AWS Secrets Manager, Vault.
 
-Zero-copy I/O: io.Reader, io.Writer, bufio.
+7. Deployment & Cloud
 
-🔹 6. Security & Auth
+Dockerization: Multi-stage builds (image size < 20MB).
 
-JWT, OAuth2: middleware auth, refresh token rotation.
+Serverless: AWS Lambda with Go.
 
-mTLS: gRPC mutual TLS.
+Kubernetes Operator Pattern: Building custom controllers in Go.
 
-Secret manager: AWS Secrets Manager / Vault.
+CI/CD: GitHub Actions, GitLab CI pipelines.
 
-🔹 7. Deployment & Cloud
+8. Advanced Patterns
 
-Dockerize Go app (multi-stage build → image < 20MB).
+Plugin Systems: Using Go plugins or dynamic modules.
 
-Serverless: Go Lambda (AWS).
+Code Generation: go generate, stringer, Protobuf.
 
-K8s operator pattern: build controller bằng Go.
+Reflection & Unsafe: For advanced dynamic behaviors (ORM, JSON parsers).
 
-CI/CD: GitHub Actions, GitLab CI.
-
-🔹 8. Advanced Patterns
-
-Plugin system: dùng go plugin hoặc dynamic module.
-
-Code generation: go generate, stringer, protobuf.
-
-Reflection & unsafe: khi cần dynamic (ORM, JSON parser).
-
-Event-driven workflow: Saga / Orchestration pattern (AWS Step Functions, Temporal).
+Event-driven Workflows: Saga / Orchestration patterns with AWS Step Functions, Temporal.
